@@ -59,7 +59,13 @@
 .device .screen { position: relative; width: 100%; height: 100%; border-radius: 36px; overflow: hidden; background: #0A0A0F; }
 .device .screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
 .device .cam { position: absolute; top: 12px; left: 50%; width: 11px; height: 11px; margin-left: -5.5px; border-radius: 50%; background: #000; box-shadow: 0 0 0 2px #1C1C20; z-index: 2; }
-.device-caption { text-align: center; color: var(--grey); font-size: 14px; margin-top: 14px; }
+/* Varias pantallas dentro del celular: se deslizan */
+.screens { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
+.screens::-webkit-scrollbar { display: none; }
+.device .screens img { flex: 0 0 100%; scroll-snap-align: start; }
+.phone-dots { display: flex; justify-content: center; gap: 8px; margin-top: 18px; }
+.phone-dots button { width: 26px; height: 6px; border-radius: 3px; border: 0; padding: 0; background: #D4D4CE; cursor: pointer; }
+.phone-dots button[aria-current="true"] { background: var(--orange); }
 
 /* Conductores */
 .drivers { background: var(--orange); }
