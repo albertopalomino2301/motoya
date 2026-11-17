@@ -1,0 +1,118 @@
+/* ─── Página de inicio ───────────────────────────────────────────────────── */
+
+/* Portada: carrusel de fotos reales */
+.hero { position: relative; background: var(--ink); color: var(--paper); }
+.slides { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.slides::-webkit-scrollbar { display: none; }
+.slide { position: relative; flex: 0 0 100%; scroll-snap-align: start; min-height: min(78vh, 720px); display: flex; align-items: flex-end; overflow: hidden; }
+.slide img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.slide .shade { position: absolute; inset: 0; background:
+  linear-gradient(90deg, rgba(0,0,0,.86) 0%, rgba(0,0,0,.62) 42%, rgba(0,0,0,.08) 78%),
+  linear-gradient(0deg, rgba(0,0,0,.65) 0%, rgba(0,0,0,0) 45%); }
+.slide-text { position: relative; padding: 64px 0 104px; }
+.slide-text > * { max-width: 620px; }
+.kicker { font-weight: 700; color: var(--yellow); font-size: 18px; margin-bottom: 10px; }
+.poster { font-family: var(--display); font-size: clamp(44px, 7.4vw, 92px); line-height: .92; letter-spacing: -.5px; }
+.poster span { display: block; }
+.l1 { color: var(--yellow); } .l2 { color: var(--pink); } .l3 { color: var(--green); } .l4 { color: var(--orange); }
+.poster-tail { font-family: var(--display); font-size: clamp(22px, 3vw, 32px); margin-top: 14px; }
+.slide h2 { font-family: var(--display); font-size: clamp(40px, 6.4vw, 80px); line-height: .95; color: var(--paper); }
+.slide p.lead { font-size: 20px; color: #E4E4EA; margin: 18px 0 26px; max-width: 36ch; }
+.slide-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.slide-note { font-size: 15px; color: #C3C3CC; }
+.slide-note a { color: var(--yellow); }
+.controls { position: absolute; left: 0; right: 0; bottom: 28px; pointer-events: none; }
+.controls .wrap { display: flex; align-items: center; gap: 16px; }
+.dots { display: flex; gap: 8px; pointer-events: auto; }
+.dots button { width: 34px; height: 6px; border-radius: 3px; border: 0; background: rgba(255,255,255,.35); cursor: pointer; padding: 0; }
+.dots button[aria-current="true"] { background: var(--orange); }
+.arrows { display: flex; gap: 8px; margin-left: auto; pointer-events: auto; }
+.arrows button { width: 44px; height: 44px; border-radius: 50%; border: 0; background: rgba(255,255,255,.14); color: var(--paper); cursor: pointer; display: grid; place-items: center; }
+.arrows button:hover { background: rgba(255,255,255,.26); }
+.arrows svg { width: 20px; height: 20px; }
+@media (prefers-reduced-motion: no-preference) {
+  .slide.is-on .poster span { animation: paint .55s cubic-bezier(.2,.8,.2,1) both; }
+  .slide.is-on .poster .l2 { animation-delay: .1s; } .slide.is-on .poster .l3 { animation-delay: .2s; } .slide.is-on .poster .l4 { animation-delay: .3s; }
+  @keyframes paint { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+}
+
+/* Secciones */
+.sec { padding: 88px 0; }
+.h2 { font-family: var(--display); font-size: clamp(30px, 4.2vw, 48px); line-height: 1; letter-spacing: -.3px; }
+.sub { font-size: 20px; color: var(--grey); max-width: 52ch; margin-top: 14px; }
+
+/* Cómo funciona + celular */
+.how { display: grid; grid-template-columns: 1fr 360px; gap: 64px; align-items: center; }
+.steps { list-style: none; display: grid; gap: 26px; margin-top: 40px; counter-reset: paso; }
+.steps li { counter-increment: paso; display: grid; grid-template-columns: 52px 1fr; gap: 4px 16px; }
+.steps li::before { content: counter(paso); grid-row: span 2; font-family: var(--display); font-size: 40px; line-height: 1; color: var(--orange); }
+.steps h3 { font-size: 20px; }
+.steps p { color: var(--grey); font-size: 17px; }
+.pay { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 34px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 17px; }
+.pay strong { margin-right: 4px; }
+.chip { border: 1.5px solid var(--ink); border-radius: 999px; padding: 3px 14px; font-weight: 700; }
+
+/* Celular: marco de Android con la pantalla real de la app */
+.device { position: relative; width: 100%; max-width: 330px; margin-inline: auto; aspect-ratio: 9 / 19.2; border-radius: 46px; background: #121214; padding: 11px; box-shadow: 0 0 0 1.5px #3A3A40 inset, 0 30px 60px -20px rgba(0,0,0,.45); }
+.device::before { content: ""; position: absolute; right: -3px; top: 22%; width: 3px; height: 64px; background: #2A2A2E; border-radius: 0 3px 3px 0; }
+.device::after { content: ""; position: absolute; right: -3px; top: 36%; width: 3px; height: 38px; background: #2A2A2E; border-radius: 0 3px 3px 0; }
+.device .screen { position: relative; width: 100%; height: 100%; border-radius: 36px; overflow: hidden; background: #0A0A0F; }
+.device .screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.device .cam { position: absolute; top: 12px; left: 50%; width: 11px; height: 11px; margin-left: -5.5px; border-radius: 50%; background: #000; box-shadow: 0 0 0 2px #1C1C20; z-index: 2; }
+.device-caption { text-align: center; color: var(--grey); font-size: 14px; margin-top: 14px; }
+
+/* Conductores */
+.drivers { background: var(--orange); }
+.drivers .grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: start; }
+.zero { font-family: var(--display); font-size: clamp(96px, 15vw, 180px); line-height: .82; letter-spacing: -4px; }
+.zero-label { font-weight: 700; font-size: 22px; margin-top: 12px; }
+.drivers .h2 { margin-top: 34px; }
+.drivers .story { font-size: 20px; color: #2A1300; margin-top: 16px; max-width: 46ch; }
+.drivers .story + .story { margin-top: 12px; }
+.need { background: var(--paper); border-radius: 20px; padding: 30px; }
+.need h3 { font-size: 22px; margin-bottom: 14px; }
+.need ul { list-style: none; display: grid; gap: 12px; margin-bottom: 18px; }
+.need li { display: grid; grid-template-columns: 24px 1fr; gap: 10px; font-size: 18px; }
+.need li svg { width: 22px; height: 22px; margin-top: 2px; }
+.need p { font-size: 16px; color: var(--grey); margin-bottom: 22px; }
+
+/* Seguridad */
+.safe { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; }
+.safe-list { list-style: none; }
+.safe-list li { padding: 20px 0; border-top: 1px solid var(--line); }
+.safe-list li:last-child { border-bottom: 1px solid var(--line); }
+.safe-list h3 { font-size: 20px; margin-bottom: 4px; }
+.safe-list p { color: var(--grey); font-size: 17px; }
+
+/* Preguntas */
+.faq { background: var(--stone); }
+.faq .list { margin-top: 32px; max-width: 780px; }
+details { border-bottom: 1px solid #CFCFC9; }
+details:first-child { border-top: 1px solid #CFCFC9; }
+summary { list-style: none; cursor: pointer; padding: 20px 44px 20px 0; font-weight: 700; font-size: 19px; position: relative; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; position: absolute; right: 6px; top: 50%; transform: translateY(-50%); font-size: 28px; font-weight: 400; color: var(--orange-deep); }
+details[open] summary::after { content: "−"; }
+details > div { padding: 0 0 22px; color: #33333B; max-width: 62ch; }
+details ol { padding-left: 22px; display: grid; gap: 6px; margin: 8px 0; }
+
+/* Cierre */
+.final { background: var(--ink); color: var(--paper); }
+.final .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
+.final .poster { font-size: clamp(34px, 5vw, 60px); }
+
+@media (max-width: 900px) {
+  .how, .drivers .grid, .safe { grid-template-columns: 1fr; gap: 40px; }
+  .slide .shade { background: linear-gradient(0deg, rgba(0,0,0,.9) 0%, rgba(0,0,0,.55) 55%, rgba(0,0,0,.15) 100%); }
+}
+@media (max-width: 600px) {
+  body { font-size: 17px; }
+  .sec { padding: 60px 0; }
+  .slide { min-height: 86vh; }
+  .slide-text { padding: 40px 0 96px; }
+  .slide .poster { font-size: 14vw; }
+  .slide p.lead { font-size: 18px; }
+  .slide-actions .btn { width: 100%; }
+  .arrows { display: none; }
+  .need { padding: 24px; }
+}

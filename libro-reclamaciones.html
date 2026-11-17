@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Libro de Reclamaciones — MotoYa</title>
+  <meta name="description" content="Registra tu reclamo o queja sobre el servicio de MotoYa.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:title" content="Libro de Reclamaciones — MotoYa">
+  <meta property="og:description" content="Registra tu reclamo o queja sobre el servicio de MotoYa.">
+  <meta property="og:image" content="img/logo-512.png">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bungee&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+  <script src="js/config.js"></script>
+  <link rel="stylesheet" href="css/libro.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="index.html" aria-label="MotoYa, inicio">
+        <img src="img/logo-96.png" width="44" height="44" alt="">
+        <span>Moto<b>Ya</b></span>
+      </a>
+      <nav aria-label="Principal">
+        <a href="index.html#como">Cómo funciona</a>
+        <a href="index.html#conductores">Conductores</a>
+        <a href="index.html#seguridad">Seguridad</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="index.html#ayuda">Ayuda</a>
+      </nav>
+      <a class="btn js-apk" href="https://github.com/albertopalomino2301/motoya/releases/latest/download/MotoYa.apk">Descargar la app</a>
+    </div>
+  </header>
+  <main>
+    <section class="page-head"><div class="wrap"><h1>Libro de Reclamaciones</h1><p>Conforme al Código de Protección y Defensa del Consumidor, puedes registrar aquí tu reclamo o queja.</p></div></section>
+    <section class="prose libro-page"><div class="wrap">
+      <div class="provider">
+        <p><b>Proveedor:</b> <span class="js-razon">MotoYa</span></p>
+        <p><b>RUC:</b> <span class="js-ruc">en trámite</span></p>
+        <p><b>Domicilio:</b> <span class="js-dir">Perú</span></p>
+      </div>
+
+      <div class="kinds">
+        <p><b>Reclamo:</b> disconformidad con el servicio (por ejemplo, un cobro o un viaje que no se hizo como se acordó).</p>
+        <p><b>Queja:</b> malestar con la atención, que no tiene que ver directamente con el servicio.</p>
+      </div>
+
+      <form id="libro" novalidate>
+        <fieldset>
+          <legend>1. Tus datos</legend>
+          <div class="row">
+            <label class="f wide">Nombre completo<input name="fullName" required minlength="3" maxlength="120" autocomplete="name"></label>
+          </div>
+          <div class="row">
+            <label class="f">Documento
+              <select name="docType"><option value="DNI">DNI</option><option value="CE">Carné de extranjería</option><option value="PASAPORTE">Pasaporte</option></select>
+            </label>
+            <label class="f">Número de documento<input name="docNumber" required minlength="6" maxlength="20" inputmode="numeric"></label>
+          </div>
+          <div class="row">
+            <label class="f">Celular<input name="phone" type="tel" required maxlength="20" autocomplete="tel" placeholder="9XX XXX XXX"></label>
+            <label class="f">Correo electrónico<input name="email" type="email" required maxlength="120" autocomplete="email"></label>
+          </div>
+          <div class="row">
+            <label class="f wide">Domicilio<input name="address" required minlength="5" maxlength="200" autocomplete="street-address"></label>
+          </div>
+          <label class="check"><input type="checkbox" name="isMinor" value="true"><span>Soy menor de edad</span></label>
+          <div class="row guardian" hidden>
+            <label class="f wide">Nombre de tu padre, madre o apoderado<input name="guardianName" maxlength="120"></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>2. El servicio</legend>
+          <div class="row">
+            <label class="f">Servicio
+              <select name="service" required>
+                <option value="">Elige uno</option>
+                <option>Viaje en mototaxi</option>
+                <option>Viaje en moto lineal</option>
+                <option>Comisión de conductor</option>
+                <option>Uso de la aplicación</option>
+                <option>Otro</option>
+              </select>
+            </label>
+            <label class="f">Monto (S/), si aplica<input name="amount" type="number" min="0" step="0.10" inputmode="decimal"></label>
+            <label class="f">Fecha de lo ocurrido<input name="incidentDate" type="date"></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>3. Tu reclamo o queja</legend>
+          <div class="seg" role="radiogroup" aria-label="Tipo">
+            <label><input type="radio" name="kind" value="RECLAMO" checked> Reclamo</label>
+            <label><input type="radio" name="kind" value="QUEJA"> Queja</label>
+          </div>
+          <label class="f wide">¿Qué pasó?<textarea name="detail" required minlength="10" maxlength="2000" rows="5" placeholder="Cuéntanos con tus palabras: dónde, cuándo y con quién."></textarea></label>
+          <label class="f wide">¿Qué solicitas?<textarea name="request" required minlength="3" maxlength="1000" rows="3" placeholder="Por ejemplo: la devolución de lo cobrado de más."></textarea></label>
+        </fieldset>
+
+        <label class="check"><input type="checkbox" name="accept" value="true" required><span>Autorizo a MotoYa a usar estos datos solo para atender mi reclamo o queja, según su <a href="privacidad.html" target="_blank">Política de privacidad</a>.</span></label>
+
+        <p class="form-error" role="alert" hidden></p>
+        <button class="btn dark" type="submit">Enviar hoja de reclamación</button>
+      </form>
+
+      <div id="hecho" class="done" hidden tabindex="-1">
+        <h2>Registramos tu hoja</h2>
+        <p class="code"></p>
+        <dl></dl>
+        <p>Guarda este número. Te responderemos por correo o por teléfono a más tardar el <b class="due"></b>.</p>
+        <button class="btn" type="button" onclick="window.print()">Imprimir o guardar en PDF</button>
+      </div>
+
+      <div class="note">
+        <p>La formulación del reclamo no impide acudir a otras vías de solución de controversias ni es requisito previo para interponer una denuncia ante el INDECOPI.</p>
+        <p>El proveedor debe responder el reclamo o queja en un plazo no mayor a quince (15) días hábiles improrrogables.</p>
+      </div>
+    </div></section>
+  </main>
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <a class="brand" href="index.html"><img src="img/logo-96.png" width="44" height="44" alt=""><span>Moto<b>Ya</b></span></a>
+          <p class="tag">Tus sueños no esperan. MotoYa tampoco.</p>
+        </div>
+        <div>
+          <h3>MotoYa</h3>
+          <ul>
+            <li><a href="nosotros.html">Acerca de nosotros</a></li>
+            <li><a href="index.html#conductores">Maneja con MotoYa</a></li>
+            <li><a href="index.html#ayuda">Preguntas frecuentes</a></li>
+            <li><a class="js-whatsapp" href="#">WhatsApp</a></li>
+            <li><a class="js-email" href="#">Correo</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="terminos.html">Términos y condiciones</a></li>
+            <li><a href="privacidad.html">Política de privacidad</a></li>
+            <li><a class="libro" href="libro-reclamaciones.html"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="4" width="22" height="25" rx="2" fill="#fff"/><rect x="5" y="4" width="5" height="25" rx="1" fill="#FF6B00"/><path d="M14 11h9M14 15h9M14 19h6" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg><span>Libro de Reclamaciones</span></a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Síguenos</h3>
+          <div class="social js-social"></div>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© <span class="js-year">2026</span> MotoYa. <span class="js-empresa"></span></span>
+        <span>Fotos de la portada: Pexels</span>
+      </div>
+    </div>
+  </footer>
+  <script src="js/site.js"></script>
+  <script>
+    (function () {
+      var cfg = window.MOTOYA || {}, e = cfg.EMPRESA || {};
+      if (e.razonSocial) document.querySelector(".js-razon").textContent = e.razonSocial;
+      if (e.ruc) document.querySelector(".js-ruc").textContent = e.ruc;
+      if (e.direccion) document.querySelector(".js-dir").textContent = e.direccion;
+
+      var form = document.getElementById("libro");
+      var err = form.querySelector(".form-error");
+      var btn = form.querySelector("button[type=submit]");
+      var minor = form.elements.isMinor, guardian = form.querySelector(".guardian");
+      minor.addEventListener("change", function () { guardian.hidden = !minor.checked; form.elements.guardianName.required = minor.checked; });
+
+      function fail(msg, field) {
+        err.textContent = msg; err.hidden = false;
+        if (field) field.focus(); else err.scrollIntoView({ block: "center" });
+      }
+      var fmt = function (d) { return new Date(d).toLocaleDateString("es-PE", { timeZone: "America/Lima", day: "numeric", month: "long", year: "numeric" }); };
+
+      form.addEventListener("submit", function (ev) {
+        ev.preventDefault(); err.hidden = true;
+        var bad = [].slice.call(form.elements).find(function (el) { return el.willValidate && !el.checkValidity(); });
+        if (bad) {
+          var name = bad.closest("label") ? bad.closest("label").firstChild.textContent.trim() : "";
+          return fail(bad.name === "accept" ? "Marca la autorización para poder registrar tu hoja." : "Revisa el campo “" + name + "”.", bad);
+        }
+        var data = {};
+        new FormData(form).forEach(function (v, k) { data[k] = typeof v === "string" ? v.trim() : v; });
+        data.isMinor = minor.checked ? "true" : "false";
+        data.accept = form.elements.accept.checked ? "true" : "false";
+
+        btn.disabled = true; btn.textContent = "Enviando…";
+        var slow = setTimeout(function () { btn.textContent = "Enviando… (puede tardar unos segundos)"; }, 4000);
+        fetch((cfg.API_URL || "") + "/api/public/complaints", {
+          method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data),
+        }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+          .then(function (res) {
+            if (!res.ok) {
+              var m = (res.j.errors && res.j.errors[0] && res.j.errors[0].msg) || res.j.message || "No pudimos registrar tu hoja.";
+              var f = res.j.errors && res.j.errors[0] && form.elements[res.j.errors[0].path];
+              return fail(m, f && f.focus ? f : null);
+            }
+            var c = res.j.complaint, done = document.getElementById("hecho");
+            done.querySelector(".code").textContent = "Hoja N.° " + c.code;
+            done.querySelector(".due").textContent = fmt(c.dueDate);
+            var rows = [["Fecha", fmt(c.createdAt)], ["Tipo", c.kind === "QUEJA" ? "Queja" : "Reclamo"], ["Nombre", c.fullName],
+              ["Documento", c.docType + " " + c.docNumber], ["Servicio", c.service], ["Detalle", c.detail], ["Pedido", c.request]];
+            var dl = done.querySelector("dl"); dl.innerHTML = "";
+            rows.forEach(function (r) { var dt = document.createElement("dt"), dd = document.createElement("dd"); dt.textContent = r[0]; dd.textContent = r[1]; dl.appendChild(dt); dl.appendChild(dd); });
+            form.hidden = true; done.hidden = false; done.focus();
+          })
+          .catch(function () { fail("No hay conexión con el servidor. Revisa tu internet e inténtalo otra vez."); })
+          .finally(function () { clearTimeout(slow); btn.disabled = false; btn.textContent = "Enviar hoja de reclamación"; });
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+/* ─── Libro de Reclamaciones ─────────────────────────────────────────────── */
+.libro-page .provider { display: grid; gap: 2px; padding: 18px 20px; border: 1.5px solid var(--ink); border-radius: 14px; margin-bottom: 22px; }
+.libro-page .kinds { display: grid; gap: 8px; margin-bottom: 30px; }
+.libro-page .kinds p { margin: 0; }
+
+#libro fieldset { border: 0; border-top: 1px solid var(--line); padding: 24px 0 8px; }
+#libro legend { font-weight: 700; font-size: 20px; padding-right: 10px; }
+#libro .row { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 14px; }
+#libro .f { flex: 1 1 200px; display: grid; gap: 6px; font-weight: 700; font-size: 16px; margin-bottom: 14px; }
+#libro .row .f { margin-bottom: 0; }
+#libro .f.wide { flex-basis: 100%; }
+#libro input:not([type=checkbox]):not([type=radio]), #libro select, #libro textarea {
+  font: inherit; font-weight: 400; font-size: 17px; width: 100%; padding: 12px 14px;
+  border: 1.5px solid #BDBDB6; border-radius: 10px; background: var(--paper); color: var(--ink);
+}
+#libro textarea { resize: vertical; min-height: 96px; }
+#libro input:focus, #libro select:focus, #libro textarea:focus { outline: none; border-color: var(--orange); box-shadow: 0 0 0 3px rgba(255,107,0,.25); }
+#libro .check { display: flex; gap: 10px; align-items: flex-start; font-size: 16px; margin: 4px 0 16px; }
+#libro .check input { width: 20px; height: 20px; margin-top: 3px; accent-color: var(--orange); flex: none; }
+#libro .seg { display: inline-flex; border: 1.5px solid var(--ink); border-radius: 12px; overflow: hidden; margin-bottom: 18px; }
+#libro .seg label { position: relative; padding: 10px 22px; font-weight: 700; cursor: pointer; }
+#libro .seg input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+#libro .seg label:has(input:checked) { background: var(--ink); color: var(--paper); }
+#libro .seg label:has(input:focus-visible) { outline: 3px solid var(--orange); outline-offset: -3px; }
+#libro button[disabled] { opacity: .7; cursor: wait; }
+.form-error { background: #FFE9E9; color: #8A0A0A; border-radius: 10px; padding: 12px 14px; margin-bottom: 14px; font-weight: 700; }
+
+.done { border: 2px solid var(--ink); border-radius: 16px; padding: 26px; }
+.done:focus { outline: none; }
+.done h2 { margin-top: 0; }
+.done .code { font-family: var(--display); font-size: 26px; color: var(--orange-deep); margin: 6px 0 18px; }
+.done dl { display: grid; grid-template-columns: 120px 1fr; gap: 6px 14px; margin-bottom: 18px; }
+.done dt { font-weight: 700; }
+.done dd { color: #2D2D33; white-space: pre-wrap; }
+.done .btn { margin-top: 14px; }
+.libro-page .note p + p { margin-top: 8px; }
+
+@media (max-width: 520px) { .done dl { grid-template-columns: 1fr; } .done dd { margin-bottom: 8px; } }
+@media print {
+  .top, .foot, .page-head, #libro, .done .btn { display: none !important; }
+  .done { border: 0; padding: 0; }
+}
