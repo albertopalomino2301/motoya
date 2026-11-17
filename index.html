@@ -102,9 +102,12 @@
           </ol>
           <div class="pay"><strong>Pagas como siempre:</strong><span class="chip">Efectivo</span><span class="chip">Yape</span><span class="chip">Plin</span></div>
         </div>
-        <div class="device">
-          <span class="cam"></span>
-          <div class="screen"><img src="img/app-bienvenida.jpg" width="540" height="1169" alt="Pantalla de bienvenida de la app MotoYa" loading="lazy"></div>
+        <div class="phone" aria-roledescription="carrusel" aria-label="Pantallas de la app">
+          <div class="device">
+            <span class="cam"></span>
+            <div class="screen screens" id="screens" tabindex="0"><img src="img/app-bienvenida.jpg" width="540" height="1169" alt="Pantalla de bienvenida de la app MotoYa" loading="lazy"><img src="img/app-pasajero.jpg" width="540" height="1169" alt="Pantalla del pasajero: mapa, destino y botón para pedir la moto" loading="lazy"></div>
+          </div>
+          <div class="phone-dots" role="group" aria-label="Elegir pantalla"><button type="button" aria-label="Ver pantalla 1" aria-current="true"></button><button type="button" aria-label="Ver pantalla 2"></button></div>
         </div>
       </div>
     </section>
