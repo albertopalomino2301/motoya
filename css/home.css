@@ -63,6 +63,13 @@
 .screens { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
 .screens::-webkit-scrollbar { display: none; }
 .device .screens img { flex: 0 0 100%; scroll-snap-align: start; }
+.phone { position: relative; max-width: 330px; margin-inline: auto; }
+.screens img { -webkit-user-drag: none; user-select: none; }
+.phone-arrow { position: absolute; top: 46%; width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--paper); color: var(--ink); box-shadow: 0 4px 14px rgba(0,0,0,.18); display: grid; place-items: center; cursor: pointer; z-index: 3; }
+.phone-arrow svg { width: 20px; height: 20px; }
+.phone-arrow.prev { left: -22px; }
+.phone-arrow.next { right: -22px; }
+.phone-arrow:hover { background: var(--orange); }
 .phone-dots { display: flex; justify-content: center; gap: 8px; margin-top: 18px; }
 .phone-dots button { width: 26px; height: 6px; border-radius: 3px; border: 0; padding: 0; background: #D4D4CE; cursor: pointer; }
 .phone-dots button[aria-current="true"] { background: var(--orange); }

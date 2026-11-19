@@ -107,6 +107,8 @@
             <span class="cam"></span>
             <div class="screen screens" id="screens" tabindex="0"><img src="img/app-bienvenida.jpg" width="540" height="1169" alt="Pantalla de bienvenida de la app MotoYa" loading="lazy"><img src="img/app-pasajero.jpg" width="540" height="1169" alt="Pantalla del pasajero: mapa, destino y botón para pedir la moto" loading="lazy"></div>
           </div>
+          <button type="button" class="phone-arrow prev" aria-label="Pantalla anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button type="button" class="phone-arrow next" aria-label="Pantalla siguiente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="phone-dots" role="group" aria-label="Elegir pantalla"><button type="button" aria-label="Ver pantalla 1" aria-current="true"></button><button type="button" aria-label="Ver pantalla 2"></button></div>
         </div>
       </div>
@@ -263,6 +265,18 @@
       var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting && e.intersectionRatio > 0.6) { cur = imgs.indexOf(e.target); dots.forEach(function (d, k) { d.setAttribute("aria-current", k === cur ? "true" : "false"); }); } }); }, { root: box, threshold: [0.6] });
       imgs.forEach(function (im) { io.observe(im); });
       dots.forEach(function (d, k) { d.addEventListener("click", function () { go(k); restart(); }); });
+      document.querySelector(".phone-arrow.prev").addEventListener("click", function () { go(cur - 1); restart(); });
+      document.querySelector(".phone-arrow.next").addEventListener("click", function () { go(cur + 1); restart(); });
+      box.addEventListener("keydown", function (e) { if (e.key === "ArrowLeft") { go(cur - 1); restart(); } if (e.key === "ArrowRight") { go(cur + 1); restart(); } });
+      // Arrastrar con el mouse (en el celular ya se desliza con el dedo)
+      var dragX = null;
+      box.addEventListener("pointerdown", function (e) { if (e.pointerType === "mouse") { dragX = e.clientX; stop(); e.preventDefault(); } });
+      window.addEventListener("pointerup", function (e) {
+        if (dragX === null) return;
+        var dx = e.clientX - dragX; dragX = null;
+        if (Math.abs(dx) > 30) go(cur + (dx < 0 ? 1 : -1));
+        restart();
+      });
       function start() { if (!still && !t) t = setInterval(function () { go(cur + 1); }, 4500); }
       function stop() { clearInterval(t); t = null; }
       function restart() { stop(); start(); }
