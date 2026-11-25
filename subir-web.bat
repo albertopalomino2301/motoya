@@ -5,7 +5,7 @@ echo.
 echo Subiendo la pagina web de MotoYa...
 git add -A
 git diff --cached --quiet && echo No habia cambios nuevos.
-git diff --cached --quiet || git commit -m "Privacidad: chat del viaje"
+git diff --cached --quiet || git commit -m "Actualizacion de la web MotoYa"
 if errorlevel 1 goto error
 git push
 if errorlevel 1 goto error
