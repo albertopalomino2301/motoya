@@ -8,17 +8,17 @@ window.MOTOYA = {
   API_URL: "https://motoya-api-srcn.onrender.com",
 
   // Dónde se descarga la app (por ejemplo, el enlace de GitHub Releases)
-  APK_URL: "https://github.com/albertopalomino2301/motoya/releases/latest/download/MotoYa.apk",
+  APK_URL: "https://github.com/motoyaapp/motoyaapp.github.io/releases/latest/download/MotoYa.apk",
 
   // Contacto oficial de MotoYa (usa el chip del negocio, no tu número personal)
   WHATSAPP: "",          // con código de país y sin "+", ej. "51987654321"
-  EMAIL:    "",          // ej. "hola@motoya.pe"
+  EMAIL:    "contacto.motoya.26@gmail.com",
 
   // Redes sociales: pega el enlace completo de cada página cuando la crees
   SOCIAL: {
-    facebook:  "",
-    instagram: "",
-    tiktok:    "",
+    facebook:  "https://www.facebook.com/profile.php?id=61596569177665",
+    instagram: "https://www.instagram.com/motoya.app/",
+    tiktok:    "https://www.tiktok.com/@motoya.app",
     x:         "",
     youtube:   "",
   },
